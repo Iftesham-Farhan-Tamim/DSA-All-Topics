@@ -57,6 +57,9 @@ Node *removeDuplicates(Node *Head) {
 }
 
 int main() {
+    ios::sync_with_stdio(false);
+    cin.tie(0);
+
     Node *Head = NULL;
     
     int arr[] = {2, 2, 6, 8, 10};
@@ -125,6 +128,9 @@ Node *removeDuplicates(Node *Head) {
 }
 
 int main() {
+    ios::sync_with_stdio(false);
+    cin.tie(0);
+
     Node *Head;
     Head = NULL;
 
@@ -208,6 +214,9 @@ Node *sortedMerge(Node *Head1, Node *Head2) {
 }
 
 int main() {
+    ios::sync_with_stdio(false);
+    cin.tie(0);
+
     Node *Head1, *Head2;
     Head1 = Head2 = NULL;
 
@@ -297,6 +306,9 @@ Node *sortLinkedList(Node *Head) {
 }
 
 int main() {
+    ios::sync_with_stdio(false);
+    cin.tie(0);
+    
     Node *Head;
     Head = NULL;
 

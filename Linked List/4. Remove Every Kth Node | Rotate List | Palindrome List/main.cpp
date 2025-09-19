@@ -212,43 +212,43 @@ void printList(Node* Head) {
 }
 
 // Rotate linked list to the right by k positions
-Node* rotateRight(Node* Head, int k) {
-    if (Head == NULL || Head->next == NULL) {
-        return Head;
-    }
+Node *rotateRight(Node *Head, int k) {
+	if (Head == NULL || Head -> next == NULL) {
+		return Head;
+	}
 
-    // Count number of nodes
-    int count = 0;
-    Node* temp = Head;
-    while (temp) {
-        count++;
-        temp = temp -> next;
-    }
+	Node *temp = Head;
+	int count = 0;
 
-    k = k % count;
-    if (k == 0) {
-        return Head;
-    }
- 
-    // Find new head
-    int steps = count - k;
-    Node* curr = Head;
-    Node* prev = NULL;
-    while (steps--) {
-        prev = curr;
-        curr = curr->next;
-    }
+	while (temp) {
+		count++;
+		temp = temp -> next;
+	}
 
-    prev->next = NULL;  // Break the list
-    Node* Tail = curr;
-    while (Tail->next != NULL) {
-        Tail = Tail->next;
-    }
+	k = k % count;
+	if (k == 0) {
+		return Head;
+	}
 
-    Tail->next = Head;  // Attach old head to the tail
-    Head = curr;        // Update head
+	int splitPoint = count - k;
+	Node *prev = NULL;
+	Node *curr = Head;
 
-    return Head;
+	while (splitPoint--) {
+		prev = curr;
+		curr = curr -> next;
+	}
+
+	prev -> next = NULL;
+
+	Node *newNode = curr;
+	while (curr -> next) {
+		curr = curr -> next;
+	}
+
+	curr -> next = Head;
+
+	return newNode;
 }
 
 int main() {

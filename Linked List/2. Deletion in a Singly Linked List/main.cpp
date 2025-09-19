@@ -25,6 +25,9 @@ Node *CreateLinkedList(int arr[], int index, int size) {
 }
 
 int main() {
+    ios::sync_with_stdio(false);
+    cin.tie(0);
+
     Node *Head;
     Head = NULL;
 
@@ -74,6 +77,9 @@ Node *CreateLinkedList(int arr[], int index, int size) {
 }
 
 int main() {
+    ios::sync_with_stdio(false);
+    cin.tie(0);
+
     Node *Head;
     Head = NULL;
 
@@ -128,6 +134,9 @@ public:
 };
 
 int main() {
+    ios::sync_with_stdio(false);
+    cin.tie(0);
+
     Node *Head, *Tail;
     Head = Tail = NULL;
 
@@ -204,6 +213,9 @@ Node *deleteNode(Node *curr, int x) {
 }
 
 int main() {
+    ios::sync_with_stdio(false);
+    cin.tie(0);
+
     Node *Head, *Tail;
     Tail = Head = NULL;
 
@@ -259,6 +271,9 @@ void deleteNode(Node *curr) {
 }
 
 int main() {
+    ios::sync_with_stdio(false);
+    cin.tie(0);
+    
     Node *Head, *Tail;
     Head = Tail = NULL;
 

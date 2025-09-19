@@ -15,6 +15,9 @@ public:
 };
 
 int main() {
+    ios::sync_with_stdio(false);
+    cin.tie(0);
+
     Node *Head;
     Head = new Node(4);  // new is a dynamic memory allocation operator.
 
@@ -43,6 +46,9 @@ public:
 };
 
 int main() {
+    ios::sync_with_stdio(false);
+    cin.tie(0);
+
     Node *Head;
     Head = NULL;
 
@@ -89,6 +95,9 @@ public:
 };
 
 int main() {
+    ios::sync_with_stdio(false);
+    cin.tie(0);
+
     Node *Head, *Tail;
     Tail = Head = NULL;
 
@@ -146,6 +155,9 @@ Node *CreateLinkedList(int arr[], int index, int size) {
 }
 
 int main() {
+    ios::sync_with_stdio(false);
+    cin.tie(0);
+
     Node *Head, *Tail;
     Tail = Head = NULL;
 
@@ -193,6 +205,9 @@ Node *CreateLinkedList(int arr[], int index, int size, Node *prev) {
 }
 
 int main() {
+    ios::sync_with_stdio(false);
+    cin.tie(0);
+
     Node *Head;
     Head = NULL;
 
@@ -242,6 +257,9 @@ Node *CreateLinkedList(int arr[], int index, int size) {
 }
 
 int main() {
+    ios::sync_with_stdio(false);
+    cin.tie(0);
+    
     Node *Head;
     Head = NULL;
 
