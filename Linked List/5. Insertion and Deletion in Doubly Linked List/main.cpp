@@ -558,13 +558,10 @@ Node *insertStart(Node *Head) {
 	temp = new Node(5);
 
 	if (Head == NULL) {
-		temp -> next = NULL;
-		temp -> prev = NULL;
 		Head = temp;
 	} else {
 		Head -> prev = temp;
 		temp -> next = Head;
-		temp -> prev = NULL;
 		Head = temp;
 	}
 
@@ -576,8 +573,6 @@ Node *insertEnd(Node *Head) {
 	temp = new Node(5);
 
 	if (Head == NULL) {
-		temp -> next = NULL;
-		temp -> prev = NULL;
 		Head = temp;
 	} else {
 		Node *curr;
@@ -589,7 +584,6 @@ Node *insertEnd(Node *Head) {
 
 		curr -> next = temp;
 		temp -> prev = curr;
-		temp -> next = NULL;
 	}
 
 	return Head;
@@ -601,13 +595,10 @@ Node *insertAtAnyPoint(Node *Head, int pos) {
 
 	if (pos == 0) {
 		if (Head == NULL) {
-			temp -> next = NULL;
-			temp -> prev = NULL;
 			Head = temp;
 		} else {
 			Head -> prev = temp;
 			temp -> next = Head;
-			temp -> prev = NULL;
 			Head = temp;
 		}
 	} else {
@@ -620,7 +611,6 @@ Node *insertAtAnyPoint(Node *Head, int pos) {
 		// at end
 		if (curr -> next == NULL) {
 			temp -> prev = curr;
-			temp -> next = NULL;
 			curr -> next = temp;
 		} else {  // at any point
 			temp -> prev = curr;
@@ -672,44 +662,38 @@ Node *deleteEnd(Node *Head) {
 }
 
 Node *deleteAtAnyPoint(Node *Head, int pos) {
-	if (Head == NULL) return NULL;
+	if (Head == NULL) {
+		return NULL;
+	}
 
-	// Delete first node (pos = 1)
 	if (pos == 1) {
-		Node *temp = Head;
-		Head = Head->next;
-
-		if (Head != NULL) {
-			Head->prev = NULL;
+		if (Head -> next == NULL) {
+			delete Head;
+			Head = NULL;
+		} else {
+			Node *temp = Head;
+			Head = Head -> next;
+			delete temp;
+			Head -> prev = NULL;
+		}
+	} else {
+		Node *curr = Head;
+		while (--pos) {
+			curr = curr -> next;
 		}
 
-		delete temp;
-		return Head;
-	}
-
-	// Traverse to the node at position pos
-	Node *temp = Head;
-	while (--pos) {
-		temp = temp -> next;
-	}
-
-	if (temp == NULL) {  // pos out of range
-		return Head;
-	}
-
-	// Delete last node
-	if (temp->next == NULL) {
-		temp->prev->next = NULL;
-		delete temp;
-	} else { // Delete middle node
-		temp->prev->next = temp->next;
-		temp->next->prev = temp->prev;
-		delete temp;
+		if (curr -> next == NULL) {
+			curr -> prev -> next = NULL;
+			delete curr;
+		} else {
+			curr -> prev -> next = curr -> next;
+			curr -> next -> prev = curr -> prev;
+			delete curr;
+		}
 	}
 
 	return Head;
 }
-
 
 int main() {
 	ios::sync_with_stdio(false);
@@ -723,10 +707,10 @@ int main() {
 
 	// Head = insertStart(Head);
 	// Head = insertEnd(Head);
-	// Head = insertAtAnyPoint(Head, 2);
+	Head = insertAtAnyPoint(Head, 2);
 	// Head = deleteStart(Head);
 	// Head = deleteEnd(Head);
-	Head = deleteAtAnyPoint(Head, 2);
+	// Head = deleteAtAnyPoint(Head, 2);
 
 	printLinkedList(Head);
 }

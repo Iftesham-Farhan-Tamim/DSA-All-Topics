@@ -35,7 +35,7 @@ Node *removeDuplicates(Node *Head) {
     Node *curr = Head -> next;
 
     while(curr) {
-        if(ans[ans.size()-1]!=curr -> data) {
+        if(ans[ans.size()-1] != curr -> data) {  // ans[ans.size()-1] gives the index of the last element / last value currently stored in the vector
             ans.push_back(curr -> data);
         }
 
@@ -46,7 +46,7 @@ Node *removeDuplicates(Node *Head) {
     int index = 0;
     Node *prev = NULL;
 
-    while(index<ans.size()) {
+    while(index < ans.size()) {
         curr -> data = ans[index++];
         prev = curr;
         curr = curr -> next;
@@ -111,20 +111,24 @@ Node *createLinkedList(int arr[], int idx, int size, Node *back) {
 }
 
 Node *removeDuplicates(Node *Head) {
-    Node *curr = Head -> next, *prev = Head;
+	Node *back = Head;
+	Node *curr = Head -> next;
 
-    while(curr) {
-        if(curr -> data == prev -> data) {
-            prev -> next = curr -> next;
-            delete curr;
-            curr = prev -> next;
-        } else {
-            prev = prev -> next;
-            curr = curr -> next;
-        }
-    }
+	while (curr) {
+		if (back -> data == curr -> data) {
+			back -> next = curr -> next;
+			if (curr -> next) {
+				curr -> next -> prev = back;
+			}
+			delete curr;
+			curr = back -> next;
+		} else {
+			back = curr;
+			curr = curr -> next;
+		}
+	}
 
-    return Head;
+	return Head;
 }
 
 int main() {
@@ -183,34 +187,41 @@ Node *createLinkedList(int arr[], int idx, int size, Node *back) {
 }
 
 Node *sortedMerge(Node *Head1, Node *Head2) {
-    Node *Head = new Node(0);
+    Node *Head = new Node(0);  // dummy
     Node *Tail = Head;
 
-    while(Head1&&Head2) {
-        if(Head1 -> data <= Head2 -> data) {
-            Tail -> next = Head1;
-            Head1 = Head1 -> next;
-            Tail = Tail -> next;
-            Tail -> next = NULL;
-        } else {
-            Tail -> next = Head2;
-            Head2 = Head2 -> next;
-            Tail = Tail -> next;
-            Tail -> next = NULL;
-        }
-    }
+    while (Head1 && Head2) {
+		if (Head1 -> data <= Head2 -> data) {
+			Tail -> next = Head1;
+			Head1 -> prev = Tail;
+			Head1 = Head1 -> next;
+			Tail  = Tail -> next;
+			Tail -> next = NULL;
+		} else {
+			Tail -> next = Head2;
+			Head2 -> prev = Tail;
+			Head2 = Head2 -> next;
+			Tail  = Tail -> next;
+			Tail -> next = NULL;
+		}
+	}
 
-    if(Head1) {
-        Tail -> next = Head1;
-    } else {
-        Tail -> next = Head2;
+    if (Head1) {
+        Tail->next = Head1;
+        Head1->prev = Tail;
+    } else if (Head2) {
+        Tail->next = Head2;
+        Head2->prev = Tail;
     }
 
     Tail = Head;
-    Head = Head -> next;
-    delete Tail;
+	Head = Head -> next;
+    if(Head) {
+        Head -> prev = NULL;
+    }
+	delete Tail;
 
-    return Head;
+	return Head;
 }
 
 int main() {
