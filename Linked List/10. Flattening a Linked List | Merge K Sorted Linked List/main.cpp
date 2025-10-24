@@ -113,7 +113,8 @@ int main() {
 	printLinkedList(Head);
 }
 
-// output: 5 -> 7 -> 8 -> 10 -> 19 -> 20 -> 22 -> 28 -> 30 -> 30 -> 34 -> 35 -> 40 -> 40 -> 40 -> 45 -> 50
+// output: 
+// 5 -> 7 -> 8 -> 10 -> 19 -> 20 -> 22 -> 28 -> 30 -> 30 -> 34 -> 35 -> 40 -> 40 -> 40 -> 45 -> 50
 // ............................................................................................
 // Merge k sorted linked list
 
@@ -279,24 +280,19 @@ void mergesort(Node *arr[], int start, int end) {
         return;
     }
 
-    int mid = start + (end-start)/2;
+    int mid = start + (end - start) / 2;
 
     mergesort(arr, start, mid);
 
-    mergesort(arr, mid+1, end);
+    mergesort(arr, mid + 1, end);
 
-    arr[start] = merge(arr[start], arr[mid+1]);
+    arr[start] = merge(arr[start], arr[mid + 1]);
 }
 
-Node *mergeKLists(Node *arr[], int k) {
-    Node *Head = arr[0];
-
-    for(int i=1; i<k; i++) {
-        Head = merge(Head, arr[i]);
-    }
-
-    return Head;
-}
+// Node *mergeKLists(Node *arr[], int k) {
+//     mergesort(arr, 0, k-1);
+//     return arr[0];
+// }
 
 int main() {
     Node *arr[3];
@@ -309,9 +305,11 @@ int main() {
     arr[1] = createLinkedList(a2, 0, 3);
     arr[2] = createLinkedList(a3, 0, 3);
 
-    Node *Head = mergeKLists(arr, 3);
+    // Node *Head = mergeKLists(arr, 3);
+    // printLinkedList(Head);  
 
-    printLinkedList(Head);  
+    mergeSort(arr, 0, 2);  // without mergeKLists
+	printLinkedList(arr[0]);
 }
 
 // output:

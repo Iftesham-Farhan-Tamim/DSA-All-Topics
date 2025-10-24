@@ -392,11 +392,11 @@ int main() {
 using namespace std;
 
 class Node {
-public:
+    public:
     int data;
     Node *next;
     Node *prev;
-
+    
     Node(int value) {
         data = value;
         next = NULL;
@@ -408,30 +408,30 @@ Node *createLinkedList(int arr[], int idx, int size, Node *back) {
     if (idx == size) {
         return NULL;
     }
-
+    
     Node *temp = new Node(arr[idx]);
     temp->prev = back;
     temp->next = createLinkedList(arr, idx + 1, size, temp);
-
+    
     return temp;
 }
 
 Node* reverseDLL(Node* head) {
     if (!head || !head->next) return head; // empty or single node
-
+    
     Node* curr = head;
     Node* temp = NULL;
-
+    
     while (curr) {
         // Swap next and prev
         temp = curr->prev;
         curr->prev = curr->next;
         curr->next = temp;
-
+        
         // Move to "next" (which is actually prev after swap)
         curr = curr->prev;
     }
-
+    
     // After loop, temp points to the node before new head
     if (temp) {
         head = temp->prev;
@@ -443,9 +443,9 @@ int main() {
     Node *Head = NULL;
     int arr[] = {2, 4, 6, 8, 10};
     Head = createLinkedList(arr, 0, 5, NULL);
-
+    
     Head = reverseDLL(Head);
-
+    
     Node *temp;
     temp = Head;
     while (temp) {
@@ -456,3 +456,78 @@ int main() {
 
 // output:
 // 10 8 6 4 2
+// ............................................................................................
+// swap nodes in pairs (https://leetcode.com/problems/swap-nodes-in-pairs/description/)
+
+#include<bits/stdc++.h>
+using namespace std;
+
+class Node {
+public:
+	int data;
+	Node *next;
+
+	Node(int value) {
+		data = value;
+		next = NULL;
+	}
+};
+
+Node *createLinkedList(int arr[], int idx, int size) {
+	if (idx == size) {
+		return NULL;
+	}
+
+	Node *temp;
+	temp = new Node(arr[idx]);
+	temp -> next = createLinkedList(arr, idx + 1, size);
+	return temp;
+}
+
+void printLinkedList(Node *Head) {
+	while (Head) {
+		cout << Head -> data << " ";
+		Head = Head -> next;
+	}
+}
+
+Node *rotate(Node *Head) {
+	if (Head == NULL || Head -> next == NULL) {
+		return Head;
+	}
+
+	Node *tail = new Node(0);
+	Node *tailCopy = tail;
+
+	Node *first = Head;
+
+	while (first && first -> next) {
+		Node *second = first -> next;
+		Node *third = second -> next;
+
+		// swap
+		tail -> next = second;
+		second -> next = first;
+
+		// update the nodes
+		tail = first;
+		first = third;
+	}
+
+	tail -> next = first;
+	return tailCopy -> next;
+}
+
+int main() {
+	ios::sync_with_stdio(false);
+	cin.tie(0);
+
+	int arr[] = {1, 2, 3, 4, 5};
+	Node *Head = createLinkedList(arr, 0, 5);
+
+	Head = rotate(Head);
+	printLinkedList(Head);
+}
+
+// output:
+// 2 1 4 3 5
