@@ -1,42 +1,42 @@
 // Permutations II (https://leetcode.com/problems/permutations-ii/description/)
 
-// #include<bits/stdc++.h>
-// using namespace std;
+#include<bits/stdc++.h>
+using namespace std;
 
-// void permut(vector<int> &arr, vector<vector<int>> &ans, int idx) {
-//     if(idx == arr.size()) {
-//         ans.push_back(arr);
-//         return;
-//     }
+void permut(vector<int> &arr, vector<vector<int>> &ans, int idx) {
+    if(idx == arr.size()) {
+        ans.push_back(arr);
+        return;
+    }
 
-//     vector<bool> use(21, 0);
-//     for(int i = idx; i < arr.size(); i++) {
-//         if(use[arr[i] + 10] == 0) {
-//             swap(arr[i], arr[idx]);
-//             permut(arr, ans, idx + 1);
-//             swap(arr[i], arr[idx]);
-//             use[arr[i] + 10] = 1;
-//         }
-//     }
-// }
+    vector<bool> use(21, 0);
+    for(int i = idx; i < arr.size(); i++) {
+        if(use[arr[i] + 10] == 0) {
+            swap(arr[i], arr[idx]);
+            permut(arr, ans, idx + 1);
+            swap(arr[i], arr[idx]);
+            use[arr[i] + 10] = 1;
+        }
+    }
+}
 
-// vector<vector<int> > permuteUnique(vector<int> &nums) {
-//     vector<vector<int> > ans;
-//     permut(nums, ans, 0);
-//     return ans;
-// }
+vector<vector<int> > permuteUnique(vector<int> &nums) {
+    vector<vector<int> > ans;
+    permut(nums, ans, 0);
+    return ans;
+}
 
-// int main() {
-//     vector<int> nums = {1, 1, 2};
-//     vector<vector<int>> result = permuteUnique(nums);
+int main() {
+    vector<int> nums = {1, 1, 2};
+    vector<vector<int>> result = permuteUnique(nums);
 
-//     for (int i = 0; i < result.size(); i++) {
-//         for (int j = 0; j < result[i].size(); j++) {
-//             cout << result[i][j] << " ";
-//         }
-//         cout << endl;
-//     }
-// }
+    for (int i = 0; i < result.size(); i++) {
+        for (int j = 0; j < result[i].size(); j++) {
+            cout << result[i][j] << " ";
+        }
+        cout << endl;
+    }
+}
 
 // output:
 // 1 1 2 

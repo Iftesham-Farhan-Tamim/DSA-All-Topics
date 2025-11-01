@@ -20,6 +20,7 @@ int main() {
         cout << "Factorial is not possible" << endl;
         return 0;
     }
+    
     cout << "Output: " << fact(n) << endl;
 }
 
