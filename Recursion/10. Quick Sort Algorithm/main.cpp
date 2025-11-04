@@ -26,6 +26,9 @@ void quickSort(int arr[], int start, int end) {
 }
 
 int main() {
+    ios::sync_with_stdio(false);
+	cin.tie(0);
+
     int arr[] = {10, 3, 4, 1, 5, 6, 3, 2, 11, 9};
     quickSort(arr, 0, 9);
     for(int i = 0; i < 10; i++) {

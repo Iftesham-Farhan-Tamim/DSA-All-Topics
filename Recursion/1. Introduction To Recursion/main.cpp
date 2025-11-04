@@ -11,6 +11,9 @@ void fun(int n) {
 }
 
 int main() {
+    ios::sync_with_stdio(false);
+	cin.tie(0);
+    
     fun(5);
 }
 
@@ -43,6 +46,9 @@ void printEven1(int n) {  // from base to n
 }
 
 int main() {
+    ios::sync_with_stdio(false);
+	cin.tie(0);
+
     printEven0(10);
     cout << endl;
     printEven1(10);

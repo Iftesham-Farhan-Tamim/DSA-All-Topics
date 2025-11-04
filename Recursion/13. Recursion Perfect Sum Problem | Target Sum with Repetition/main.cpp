@@ -12,6 +12,9 @@ int subSet(int arr[], int idx, int sum, int n) {
 }
 
 int main() {
+    ios::sync_with_stdio(false);
+	cin.tie(0);
+
     int arr[] = {2, 5, 6, 1, 3};
     int sum = 8;
     cout << subSet(arr, 0, sum, 5) << endl;
@@ -38,6 +41,9 @@ int subSum(int arr[], int idx, int n, int sum) {
 }
 
 int main() {
+    ios::sync_with_stdio(false);
+	cin.tie(0);
+    
     int arr[] = {2, 3, 4};
     int sum = 6;
     cout << subSum(arr, 0, 3, sum) << endl;

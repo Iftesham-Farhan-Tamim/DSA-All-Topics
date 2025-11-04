@@ -12,15 +12,12 @@ bool checkPal(string str, int start, int end) {
     // not matched
     if(str[start] != str[end]) {
         return 0;
-    } else {
+    } else {  // matched
         return checkPal(str, start + 1, end - 1);
     }
 }
 
 int main() {
-    ios::sync_with_stdio(false);
-	cin.tie(0);
-    
     string str = "madam";
     cout << checkPal(str, 0, 4) << endl;
 }
@@ -28,34 +25,33 @@ int main() {
 // output:
 // 1
 // ............................................................................................
-// check vowel
+// count vowels
 
 #include<bits/stdc++.h>
 using namespace std;
 
-int count(string str, int idx) {
-    if(idx == -1) {
+int count(string str, int index) {
+    if(index == -1) {
         return 0;
     }
 
-    // check voewl
-    if(str[idx] == 'a' || str[idx] == 'e' || str[idx] == 'i' || str[idx] == 'o' || str[idx] == 'u') {
-        return 1 + count(str, idx - 1);
-    } else {
-        return count(str, idx - 1);
+    // if vowel
+    if(str[index] == 'a' || str[index] == 'e' || str[index] == 'i' || 
+       str[index] == 'o' || str[index] == 'u') {
+        return 1 + count(str, index - 1);
+    } else {  // if not
+        return count(str, index - 1);
     }
 }
 
 int main() {
-    ios::sync_with_stdio(false);
-	cin.tie(0);
-
-    string str = "roeits";
+    // count vowels
+    string str = "helloworld";
     cout << count(str, 5) << endl;
 }
 
 // output:
-// 3
+// 2
 // ............................................................................................
 // reverse a string
 
@@ -74,39 +70,33 @@ void rev(string &str, int start, int end) {
 }
 
 int main() {
-    ios::sync_with_stdio(false);
-	cin.tie(0);
-
-    string str = "tamim";
+    string str = "hello";
     rev(str, 0, 4);
     cout << str << endl;
 }
 
 // output:
-// mimat
+// olleh
 // ............................................................................................
-// String Lowercase to Uppercase Conversion
+// lower case to upper case
 
 #include<bits/stdc++.h>
 using namespace std;
 
-void lowertoupper(string &str, int idx) {
-    if(idx == -1) {
+void lowerToUpper(string &str, int index) {
+    if(index == -1) {
         return;
     }
 
-    str[idx] = 'A' + str[idx] - 'a';
-    lowertoupper(str, idx - 1);
+    str[index] = 'A' + str[index] - 'a';
+    lowerToUpper(str, index - 1);
 }
 
 int main() {
-    ios::sync_with_stdio(false);
-	cin.tie(0);
-
-    string str = "tamim";
-    lowertoupper(str, 5);
+    string str = "hello";
+    lowerToUpper(str, 4);
     cout << str << endl;
 }
 
 // output:
-// TAMIM
+// HELLO

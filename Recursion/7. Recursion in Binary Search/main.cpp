@@ -17,6 +17,9 @@ bool linearSearch(int arr[], int x, int idx, int n) {
 }
 
 int main() {
+    ios::sync_with_stdio(false);
+	cin.tie(0);
+
     int arr[] = {2, 3, 6, 7, 1, 5};
     int x = 22;
     cout << linearSearch(arr, x, 0, 6) << endl;
@@ -48,6 +51,9 @@ bool binarySearch(int arr[], int start, int end, int x) {
 }
 
 int main() {
+    ios::sync_with_stdio(false);
+	cin.tie(0);
+    
     int arr[] = {2, 4, 6, 8, 10, 12};
     int x = 13;
     cout << binarySearch(arr, 0, 5, x) << endl;

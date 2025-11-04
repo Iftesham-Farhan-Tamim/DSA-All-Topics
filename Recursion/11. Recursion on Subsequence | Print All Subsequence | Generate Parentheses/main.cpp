@@ -18,6 +18,9 @@ void subsequence(int arr[], int idx, int n, vector<vector<int> >&ans, vector<int
 }
 
 int main() {
+    ios::sync_with_stdio(false);
+	cin.tie(0);
+
     int arr[] = {1, 2, 3};
     vector<vector<int> > ans;
     vector<int>temp;
@@ -61,6 +64,9 @@ void subset(string &s, int idx, int n, vector<string>&ans, string temp) {
 }
 
 int main() {
+    ios::sync_with_stdio(false);
+	cin.tie(0);
+
     string s = "abc";
     vector<string>ans;
     string temp;
@@ -114,6 +120,9 @@ vector<string> generateParenthesis(int n) {
 }
 
 int main() {
+    ios::sync_with_stdio(false);
+	cin.tie(0);
+    
     int n;
     cin >> n;
 

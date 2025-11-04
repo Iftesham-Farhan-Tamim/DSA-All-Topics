@@ -12,6 +12,9 @@ int fib(int n) {
 }
 
 int main() {
+    ios::sync_with_stdio(false);
+	cin.tie(0);
+    
     int n;
     cout << "Input: ";
     cin >> n;
@@ -35,6 +38,9 @@ int climb(int n) {
 }
 
 int main() {
+    ios::sync_with_stdio(false);
+	cin.tie(0);
+
     int n;
     cout << "Input: ";
     cin >> n;
@@ -58,6 +64,9 @@ int gcd(int a, int b) {
 }
 
 int main() {
+    ios::sync_with_stdio(false);
+	cin.tie(0);
+
     int x, y;
     cout << "Input of first number: ";
     cin >> x;

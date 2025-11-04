@@ -13,6 +13,9 @@ int fact(int n) {
 }
 
 int main() {
+    ios::sync_with_stdio(false);
+	cin.tie(0);
+    
     int n;
     cout << "Input: ";
     cin >> n;
@@ -42,6 +45,9 @@ int sum(int n) {
 }
 
 int main() {
+    ios::sync_with_stdio(false);
+	cin.tie(0);
+
     int n;
     cout << "Input: ";
     cin >> n;
@@ -67,6 +73,9 @@ int pow(int num, int n) {
 }
 
 int main() {
+    ios::sync_with_stdio(false);
+	cin.tie(0);
+
     int n;
     cout << "Input: ";
     cin >> n;
@@ -91,6 +100,9 @@ int sumOfSquares(int n) {
 }
 
 int main() {
+    ios::sync_with_stdio(false);
+	cin.tie(0);
+
     int n;
     cout << "Input: ";
     cin >> n;

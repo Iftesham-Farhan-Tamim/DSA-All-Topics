@@ -14,6 +14,9 @@ void print(int arr[], int idx, int n, int sum) {
 }
 
 int main() {
+    ios::sync_with_stdio(false);
+	cin.tie(0);
+
     int arr[] = {1, 2, 3, 4};
     print(arr, 0, 4, 0);
 }
@@ -37,6 +40,9 @@ void print(int arr[], int idx, int n, int sum, vector<int> &ans) {
 }
 
 int main() {
+    ios::sync_with_stdio(false);
+	cin.tie(0);
+
     int arr[] = {1, 2, 3, 4};
     vector<int> ans;
     print(arr, 0, 4, 0, ans); 
@@ -64,6 +70,9 @@ bool find(int arr[], int idx, int n, int target) {
 }
 
 int main() {
+    ios::sync_with_stdio(false);
+	cin.tie(0);
+    
     int arr[] = {2, 4, 1, 8, 7};
     int target = 13;
     cout << find(arr, 0, 5, target) << " ";

@@ -21,6 +21,9 @@ void permut(int arr[], vector<vector<int> > &ans, vector<int> &temp, vector<bool
 }
 
 int main() {
+    ios::sync_with_stdio(false);
+	cin.tie(0);
+
     int arr[] = {1, 2, 3};
     vector<vector<int> > ans;
     vector<int> temp;              
@@ -62,6 +65,9 @@ void permut(vector<int> &arr, vector<vector<int> > &ans, int index) {
 }
 
 int main() {
+    ios::sync_with_stdio(false);
+	cin.tie(0);
+
     vector<int> arr = {1, 2, 3};
     vector<vector<int> > ans;
 
@@ -102,6 +108,9 @@ void permut(string &s, vector<string> &ans, int index) {
 }
 
 int main() {
+    ios::sync_with_stdio(false);
+	cin.tie(0);
+    
     string s = "ABC";
     vector<string> ans;
 
