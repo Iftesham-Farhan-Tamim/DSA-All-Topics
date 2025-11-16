@@ -20,7 +20,7 @@ bool checkPal(string str, int start, int end) {
 int main() {
     ios::sync_with_stdio(false);
 	cin.tie(0);
-    
+
     string str = "madam";
     cout << checkPal(str, 0, 4) << endl;
 }
